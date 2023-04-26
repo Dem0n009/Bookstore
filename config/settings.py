@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from environs import Env 
+env = Env() 
+env.read_env() 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +26,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'p=_!v6m46n4n+zis9v@6=-*fbjss-19hm4lj^=ss6o)4h(k=&a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+DEBUG = env.bool("DJANGO_DEBUG") 
+
+ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1'] 
 
 
 # Application definition
@@ -163,3 +167,4 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email' 
 ACCOUNT_EMAIL_REQUIRED = True 
 ACCOUNT_UNIQUE_EMAIL = True 
+
