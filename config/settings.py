@@ -23,11 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'p=_!v6m46n4n+zis9v@6=-*fbjss-19hm4lj^=ss6o)4h(k=&a'
+SECRET_KEY = 'aizVPDLYntnuRW3-ix6PPd7FPav6ogsdAC7idMjdE7CgfsMDe5s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = env.bool("DJANGO_DEBUG") 
+DEBUG = env.bool("DJANGO_DEBUG", default=False)
+
+# SECURE_SSL_REDIRECT = env.bool("DJANGO_SECURE_SSL_REDIRECT", default=True)
 
 ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1'] 
 
@@ -186,3 +188,4 @@ INTERNAL_IPS = [ip[:-1] + "1" for ip in ips]
 CACHE_MIDDLEWARE_ALIAS = 'default'
 CACHE_MIDDLEWARE_SECONDS = 604800
 CACHE_MIDDLEWARE_KEY_PREFIX = ''
+
